@@ -11,9 +11,19 @@ body {
 	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
+h1{
+	color:#ff7300;
+}
+
+h2{
+	color: grey;
+}
+
 form {
 	display: flex;
 	flex-direction: column;
+	padding-top: auto;
+	padding-bottom: auto;
 }
 
  
@@ -39,10 +49,6 @@ button {
 	font-size: 16px;
 	cursor: pointer;
 	transition: background-color 0.2s ease-in-out;
-}
-
-button:hover {
-	background-color: #0062cc;
 }
 
 .title{

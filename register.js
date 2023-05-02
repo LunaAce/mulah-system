@@ -24,5 +24,5 @@ var app = new Vue({
 })
 
 function navigateToPage() {
-    window.location.assign('result.html');
+    window.location.replace('result.html');
 }

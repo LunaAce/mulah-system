@@ -20,5 +20,5 @@ var app = new Vue({
   })
   
   function navigateToPage() {
-    window.location.assign('register.html');
+    window.location.replace('register.html');
   }
