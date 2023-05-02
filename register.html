@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Login Page</title>
+    <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+</head>
+
+<body>
+    <div id="app">
+        <h1>Mulah</h1>
+        <h1>Registration</h1>
+        <h3>Please fill up details</h3>
+        <form>
+            <div>
+
+                <br />
+                <p>Name</p>
+                <input placeholder="Enter Name" type="name" id="mobile-number" v-model="name" required />
+                <p id="warning">*Please insert a name</p>
+
+                <br />
+
+                <p>Birthday</p>
+                <input placeholder="DD" type="dd" id="date" v-model="dd" required>
+                <input placeholder="MM" type="mm" id="month" v-model="mm" required>
+                <input placeholder="YYYY" type="yyy" id="year" v-model="yy" required>
+
+                <p id="warning">*Please insert your birthday</p>
+
+                <br />
+                <p>Email</p>
+                <input placeholder="Email Address" type="email" id="email" v-model="email" required />
+                <p id="warning">*Please insert a valid email address</p>
+                <input type="checkbox" id="noemail" value="No Email Addres" />
+                <label for="noemail">No email address</label><br />
+            </div>
+
+            <button v-on:click="Register">Continue</button>
+
+            <hr>
+            
+            </hr>
+            <footer>
+                <p>Powered by <a href="MulahRewards.com">MulahRewards.com</a></p>
+            </footer>
+        </form>
+    </div>
+
+    <!-- include Vue.js library -->
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <!-- include your custom JS file -->
+    <script src="register.js"></script>
+</body>
+
+
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Login Page</title>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css">
+</head>
+
+<body>
+
+  <div id="app">
+    <h1 name="title">Mulah</h1>
+    <br>
+    <h1 name="greetings">Hello,</h1>
+    <h1 name="greetings">Welcome</h1>
+    <form>
+      <h2 name="text1">Check Your Loyalty Points & Rewards</h2>
+      <div>
+        <select for="mobile-number">
+          <option value="+60 ">+60</option>
+          <input placeholder="Enter your mobile number" type="tel" id="mobile-number" v-model="mobileNumber"
+            pattern="[0-9]{10}" required><br>
+        </select>
+
+      </div>
+      <button v-on:click="navigateToPage()">Check Loyality Point</button>
+
+      <hr></hr>
+      <footer>
+          <p>Powered by <a href="MulahRewards.com">MulahRewards.com</a></p>
+      </footer>
+    </form>
+  </div>
+
+  <!-- include Vue.js library -->
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  <!-- include your custom JS file -->
+  <script src="app.js"></script>
+</body>
+
+</html>
