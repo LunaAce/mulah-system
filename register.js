@@ -1,9 +1,5 @@
-// create a new Vue app
 var app = new Vue({
-    // specify the HTML element to attach to
     el: '#app',
-
-    // define your data properties
     data: {
         name: '',
         dd: '',
@@ -11,8 +7,6 @@ var app = new Vue({
         yy: '',
         email: '',
     },
-
-
     methods: {
         handleSubmit() {
             const data = {
@@ -28,8 +22,6 @@ var app = new Vue({
 
     }
 })
-
-
 
 function navigateToPage() {
     window.location.assign('result.html');
