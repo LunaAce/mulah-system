@@ -5,33 +5,28 @@
     <title>Login Page</title>
     <link rel="stylesheet" type="text/css" href="stylesheet.css" />
 </head>
-
 <body>
     <div id="app">
-        <h1>Mulah</h1>
-        <h2 name="sub">Registration</h2>
-        <p>Please fill up details</p>
+        <h1 class="title">Mulah</h1>
+        <h2 class="sub">Registration</h2>
+        <p class="desg">Please fill up details</p>
         <form>
             <div>
 
-                <br />
                 <p>Name</p>
                 <input placeholder="Enter Name" type="name" id="mobile-number" v-model="name" required />
-                <p id="warning">*Please insert a name</p>
+                <p class="warning">*Please insert a name</p>
 
-                <br />
 
                 <p>Birthday</p>
-                <input placeholder="DD" type="dd" id="date" v-model="dd" required>
-                <input placeholder="MM" type="mm" id="month" v-model="mm" required>
-                <input placeholder="YYYY" type="yyy" id="year" v-model="yy" required>
+                <input class=date placeholder="DD" type="dd" id="date" v-model="dd" required>
+                <input class=date placeholder="MM" type="mm" id="month" v-model="mm" required>
+                <input class=date placeholder="YYYY" type="yyy" id="year" v-model="yy" required>
+                <p class="warning">*Please insert your birthday</p>
 
-                <p id="warning">*Please insert your birthday</p>
-
-                <br />
                 <p>Email</p>
                 <input placeholder="Email Address" type="email" id="email" v-model="email" required />
-                <p id="warning">*Please insert a valid email address</p>
+                <p class="warning">*Please insert a valid email address</p>
                 <input type="checkbox" id="noemail" value="No Email Addres" />
                 <label for="noemail">No email address</label><br />
             </div>

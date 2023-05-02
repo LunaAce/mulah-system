@@ -5,14 +5,20 @@ body {
 
 #app {
 	margin: 0 auto;
-	max-width: 400px;
+	max-width: 640px;
+	max-height: 1136px;
 	padding: 20px;
 	background-color: #fff;
 	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-h1{
+h1.title{
 	color:#ff7300;
+	text-align: center;
+}
+
+h1.greetings{
+	color:grey;
 }
 
 h2{
@@ -36,7 +42,7 @@ input {
 	padding: 10px;
 	margin-bottom: 20px;
 	border: 1px solid #ccc;
-	border-radius: 3px;
+	border-radius: 5px;
 	font-size: 16px;
 }
 
@@ -48,7 +54,20 @@ button {
 	border-radius: 3px;
 	font-size: 16px;
 	cursor: pointer;
-	transition: background-color 0.2s ease-in-out;
+}
+
+p.des{
+	color: #ff7300;
+
+}
+
+p.desg{
+	color: grey;
+}
+
+p.warning{
+	color: red;
+	font-size: 12px;
 }
 
 .title{
@@ -61,5 +80,14 @@ hr.solid {
 }
 
 footer{
-  position: center;
+  text-align: center;
+}
+
+select{
+	width:80px;
+	padding: 10px;
+}
+
+input.date{
+	width: 50px;
 }
