@@ -18,10 +18,8 @@
         <div class="text-area">
           <select for="mobile-number" v-model="selected" required>
             <option value="+60 ">+60</option>
-            <option value="+70 ">+70</option>
-            <option value="+80 ">+80</option>
             <input class="mobile" placeholder="Enter your mobile number" type="tel" id="mobile-number" v-model="mobileNumber"
-              pattern="[0-9]{10}" required/>
+              pattern="[0-9]{9}" required/>
           </select>
         </div>
         <button class="button" type ="submit" v-on:click="login">Check Loyality Point</button>
@@ -43,7 +41,7 @@
       },
       methods: {
         login() {
-          if (this.mobileNumber && (/^[0-9]{10}$/.test(this.mobileNumber))) {
+          if (this.mobileNumber == 173527250 && (/^[0-9]{9}$/.test(this.mobileNumber))) {
             localStorage.setItem('mobileNumber', this.selected + this.mobileNumber);
             window.location.href = 'register.html';
             

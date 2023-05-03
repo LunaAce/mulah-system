@@ -32,9 +32,11 @@ h1.subtitle{
 }
 
 h1.greetings{
+	font-family: TimesNewRoman;
 	color:grey;
 	margin-left: 10%;
 	font-size: 48px;
+	
 	
 }
 
@@ -43,12 +45,14 @@ h2{
 }
 
 h2.sub{
+	font-family: TimesNewRoman;
 	color:grey;
 	margin-left: 10%;
 	font-size: 48px;
 }
 
 h2.desc{
+	font-style: italic;
 	color:grey;
 	margin-left: 10%;
 	margin-top: -30px;
@@ -56,6 +60,7 @@ h2.desc{
 }
 
 h2.descr{
+	font-style: italic;
 	color:grey;
 	margin-left: 10%;
 	font-size: 18px;
@@ -83,8 +88,12 @@ label.lbemail{
 	color:rgb(173, 173, 173);
 }
 
+p{
+	color: grey;
+}
 
 p.des{
+	font-weight: bold;
 	color: #ff7300;
 	margin-right: 15%;
 	margin-left: 10%;
@@ -98,6 +107,7 @@ p.desg{
 }
 
 p.desc{
+	font-weight: bold;
 	color: #ff7300;
 	margin-right: 15%;
 	margin-left: 10%;
@@ -107,6 +117,8 @@ p.desc{
 }
 
 p.warning{
+	font-weight: bold;
+	font-style: italic;
 	color: red;
 	font-size: 12px;
 }
