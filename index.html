@@ -1,7 +1,5 @@
-
-
-
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <title>Mulah System</title>
   <link rel="stylesheet" type="text/css" href="stylesheet.css">
@@ -9,6 +7,7 @@
 </head>
 <body>
 <div id="app">
+    <component :mobileNumber="this.mobileNumber"></component>
     <div class="Container">
       <h1 class="title">MULAH</h1>
       <br>
@@ -17,13 +16,15 @@
       <p class="des">Check Your Loyalty Points & Rewards</p>
       <form @submit.prevent="login">
         <div class="text-area">
-          <select for="mobile-number">
+          <select for="mobile-number" v-model="selected" required>
             <option value="+60 ">+60</option>
+            <option value="+70 ">+70</option>
+            <option value="+80 ">+80</option>
             <input class="mobile" placeholder="Enter your mobile number" type="tel" id="mobile-number" v-model="mobileNumber"
               pattern="[0-9]{10}" required/>
           </select>
         </div>
-        <button type ="submit" v-on:click="login">Check Loyality Point</button>
+        <button class="button" type ="submit" v-on:click="login">Check Loyality Point</button>
       </form>
       <footer>
         <hr>
@@ -32,16 +33,18 @@
     </div>
   </div>
   <script>
-    new Vue({
+    const app = new Vue({
       el: '#app',
       data: {
-        mobileNumber: '',
-        error: '',
-        message: 'Hello,',
+          message: 'Hello,',
+          mobileNumber: '',
+          error: '',
+      
       },
       methods: {
         login() {
-          if (this.mobileNumber === '1234567890') {
+          if (this.mobileNumber) {
+            localStorage.setItem('mobileNumber', this.selected + this.mobileNumber);
             window.location.href = 'register.html';
             
           } else {
@@ -52,6 +55,6 @@
     });
   </script>
 </body>
-
+</html>
 
 

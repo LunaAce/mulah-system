@@ -1,21 +1,74 @@
-<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js">
-    import Vue from "vue";
-    import App from "./App.vue";
-    import VueSessionStorage from "vue-sessionstorage";
-    Vue.use(VueSessionStorage);
-    Vue.config.productionTip = false;
 
-    new Vue({
-    render: (h) => h(App)
-    }).$mount("#app");
-</script>
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Result Page</title>
+    <link rel="stylesheet" type="text/css" href="stylesheet.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 </head>
+
 <body>
-    
+    <div id="app">
+        <div class="Container">
+            <h1 class="subtitle">MULAH</h1>
+            <h2 class="descr">Here is Your detail:</h2>
+            <form>
+                <div class="text-area">
+                    <p class ="desc">Mobile Number : {{mobileNumber}}</p>
+                    <p class ="desc">Your Name     : {{name}}</p>
+                    <p class ="desc">Your Birthday : {{dd}} - {{mm}} - {{yy}}</p>
+                    <p class ="desc">Your Email    : {{email}}</p>
+                </div>
+            </form>
+            <footer>
+                <hr>
+                </hr>
+                <p>Powered by <a href="MulahRewards.com">MulahRewards.com</a></p>
+            </footer>
+        </div>
+    </div>
+    <script>
+        const app = new Vue({
+        el: '#app',
+        data: {
+                mobileNumber: '',
+                name: '',
+                dd: '',
+                mm: '',
+                yy: '',
+                email: '',
+                noemail:'No Email'
+                },
+        
+        created() {
+            this.mobileNumber = localStorage.getItem('mobileNumber');
+            this.name = localStorage.getItem('name');
+            this.dd = localStorage.getItem('dd');
+            this.mm = localStorage.getItem('mm');
+            this.yy = localStorage.getItem('yy');
+            this.email = localStorage.getItem('email');
+         
+            if (!this.name || !this.dd || !this.mm || !this.yy) {
+                window.location.href = 'register.html';
+            }
+            else if(!this.mobileNumber){
+                window.location.href = 'index.html';
+            }
+            else{
+                localStorage.removeItem('mobileNumber');
+                localStorage.removeItem('name');
+                localStorage.removeItem('dd');
+                localStorage.removeItem('mm');
+                localStorage.removeItem('yy');
+                localStorage.removeItem('email');
+            }
+          
+            },
+            });
+    </script>
+        
 </body>
+</html>

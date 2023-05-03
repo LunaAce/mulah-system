@@ -1,97 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
     <title>Register</title>
     <link rel="stylesheet" type="text/css" href="stylesheet.css" />
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 </head>
+
 <body>
     <div id="app">
         <div class="Container">
-        <h1 class="subtitle">MULAH</h1>
-        <h2 class="sub">Registration</h2>
-        <h2 class="desc">Please fill up details</h2>
-        <form>
-        
-            <div class="text-area">
-            <p>Name</p>
-                <input class="norm" placeholder="Enter Name" type="name" id="name" v-model="name" required/>
-                <p class="warning">*Please insert a name</p>
-            </div>
+            <h1 class="subtitle">MULAH</h1>
+            <h2 class="sub">Registration</h2>
+            <h2 class="desc">Please fill up details</h2>
+            <form @submit.prevent="data">
+                <div class="text-area">
+                    <p>Name</p>
+                    <input class="norm" placeholder="Enter Name" type="name" id="name" v-model="name" required />
+                    <p class="warning">*Please insert a name</p>
+                </div>
 
-            <div class="text-area">
-            <p>Birthday</p>
-                <input class=date1 placeholder="DD" type="dd" id="date" v-model="dd"  pattern="[0-31]{2}"required></input>
-                <input class=date2 placeholder="MM" type="mm" id="month" v-model="mm"  pattern="[0-12]{2}"required></input>
-                <input class=date3 placeholder="YYYY" type="yyyy" id="year" v-model="yy"  pattern="[0000-2050]{4}"required></input>
-                <p class="warning">*Please insert your birthday</p>
-            </div>
-      
-            <div class="text-area">
-            <p>Email</p>
-                <input class="norm" placeholder="Email Address" type="email" id="email" v-model="email" required />
-            <p class="warning">*Please insert a valid email address</p>
+                <div class="text-area-date">
+                    <p>Birthday</p>
+                    <input class=date1 placeholder="DD" type="dd" id="date" v-model="dd" pattern="[1-31]{2}" required />
+                    <input class=date2 placeholder="MM" type="mm" id="month" v-model="mm" pattern="[1-12]{2}"
+                        required />
+                    <input class=date3 placeholder="YYYY" type="yyyy" id="year" v-model="yy" pattern="[0001-9999]{4}"
+                        required />
+                    <p class="warning">*Please insert your birthday</p>
+                </div>
 
-            <input class=checkbox type="checkbox" id="noemail" value="No Email Addres"></input>
-            <label class=lbemail for="noemail">No email address</label>
-            <br/>
-            </div>
+                <div class="text-area">
+                    <p>Email</p>
+                    <input class="norm" placeholder="Email Address" type="email" :disabled="notRequired" v-bind:required="!notRequired" id="email" v-model="email" 
+                       />
+                    <p class="warning">*Please insert a valid email address</p>
+                    <input class=checkbox type="checkbox" id="noemail"  v-model="notRequired" v-on:change="email = ''"/>
+                    <label class=lbemail for="noemail">No email address</label>
+                    <br />
+                </div>
 
-            <button v-on:click="Register">Continue</button>
-           
-        </form>
-        <footer>
-            <hr> </hr>
-            <p>Powered by <a href="MulahRewards.com">MulahRewards.com</a></p>
-        </footer>
-    </div>
-    <script>
-        export default {
-        props: ['message'],
-        name: '',
-        dd: '',
-        mm: '',
-        yy: '',
-        email: '',
-        },
-        
-        methods: {
-            handleSubmit() {
-                const data = {
-                    name: this.name,
-                    dd: this.dd,
-                    mm: this.mm,
-                    yy: this.yy,
-                    email: this.email
-                }
-                console.log('submitted')
-            }
+                <button class="button" v-on:click="handleSubmit">Continue</button>
 
-        
-        }
 
-        // var app = new Vue({
-        //     el: '#app',
-        //     data: {
-        //         name: '',
-        //         dd: '',
-        //         mm: '',
-        //         yy: '',
-        //         email: '',
-        //     },
-        //     methods: {
-        //         handleSubmit() {
-        //             const data = {
-        //                 name: this.name,
-        //                 dd: this.dd,
-        //                 mm: this.mm,
-        //                 yy: this.yy,
-        //                 email: this.email
-        //             }
-        //             console.log('submitted')
-        //         }
-        
-        
-        //     }
-        // })
-        
+            </form>
+            <footer>
+                <hr>
+                </hr>
+                <p>Powered by <a href="MulahRewards.com">MulahRewards.com</a></p>
+            </footer>
+        </div>
+        <script>
+            const app = new Vue({
+                el: '#app',
+                data: {
+                    mobileNumber: '',
+                    name: '',
+                    dd: '',
+                    mm: '',
+                    yy: '',
+                    email: '',
+                    notRequired: false ,
+                    emailError: false
+
+                },
+
+                created() {
+                    this.mobileNumber = localStorage.getItem('mobileNumber');
+                    if (!this.mobileNumber) {
+                        window.location.href = 'index.html';
+                    }
+                    else {
+                        localStorage.removeItem('mobileNumber');
+                    }
+                },
+
+                computed: {
+                        isEmailValid() {
+                        // Check if email is not empty and in the correct format
+                        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                        return this.email && emailRegex.test(this.email);
+                        },
+                        isEmailRequired() {
+                        return this.email.trim() === "";
+                        },
+                    },
+                methods: {
+                    handleSubmit() {
+                        localStorage.setItem('mobileNumber', this.mobileNumber);
+
+                        if (this.name) {
+                            localStorage.setItem('name', this.name);
+                            if (this.dd && this.mm && this.yy) {
+                                localStorage.setItem('dd', this.dd);
+                                localStorage.setItem('mm', this.mm);    
+                                localStorage.setItem('yy', this.yy);
+                                if (this.notRequired === true ) {
+                                    window.location.href = 'result.html';
+                                    }
+
+                                else if(this.notRequired === false  && (/^\S+@\S+\.\S+$/.test(this.email))){
+                                    localStorage.setItem('email', this.email);
+                                    window.location.href = 'result.html';
+                                    }
+
+                                }
+                            }
+                        }
+                    },
+
+                });
         </script>
 </body>
+
+</html>
