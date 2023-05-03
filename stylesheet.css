@@ -1,28 +1,58 @@
 body {
 	font-family: Arial, sans-serif;
 	background-color: #f2f2f2;
+	padding: 20px 20px 20px 20px;
 }
 
 #app {
 	margin: 0 auto;
-	max-width: 640px;
-	max-height: 1136px;
-	padding: 20px;
+	width: 640px;
+	height: 1136px;
+	padding: 35px;
+	margin-top: auto;
+	margin-top: auto;
+	margin-left:auto;
+	margin-right:auto;
 	background-color: #fff;
-	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
 }
 
 h1.title{
 	color:#ff7300;
 	text-align: center;
+	font-size: 68px;
+	
+}
+
+h1.subtitle{
+	color:#ff7300;
+	text-align: center;
+	font-size: 48px;
+	
 }
 
 h1.greetings{
 	color:grey;
+	margin-left: 10%;
+	font-size: 48px;
+	
 }
 
 h2{
 	color: grey;
+}
+
+h2.sub{
+	color:grey;
+	margin-left: 10%;
+	font-size: 48px;
+}
+
+h2.desc{
+	color:grey;
+	margin-left: 10%;
+	margin-top: -30px;
+	font-size: 18px;
 }
 
 form {
@@ -30,6 +60,10 @@ form {
 	flex-direction: column;
 	padding-top: auto;
 	padding-bottom: auto;
+	align-items: center;
+	margin-left: auto;
+	margin-right: auto;
+	width: 80%;
 }
 
  
@@ -38,26 +72,18 @@ label {
 	margin-bottom: 10px;
 }
 
-input {
-	padding: 10px;
-	margin-bottom: 20px;
-	border: 1px solid #ccc;
-	border-radius: 5px;
-	font-size: 16px;
+
+label.lbemail{
+	color:rgb(173, 173, 173);
 }
 
-button {
-	padding: 10px 20px;
-	background-color: #ff7300;
-	color: #fff;
-	border: none;
-	border-radius: 3px;
-	font-size: 16px;
-	cursor: pointer;
-}
 
 p.des{
 	color: #ff7300;
+	margin-right: 15%;
+	margin-left: 10%;
+	margin-TOP: 8%;
+	margin-bottom: 10%;
 
 }
 
@@ -70,24 +96,96 @@ p.warning{
 	font-size: 12px;
 }
 
+div.text-area{
+	max-width: 1000px;
+	width: 100%;
+
+}
+
+
+
 .title{
-	color: #ff7300;
+	color: #ff7300; 
 }
 
 /* Solid border */
 hr.solid {
-	border-top: 3px solid #000000;
+	border: 5px solid #000000;
 }
 
 footer{
   text-align: center;
+  width: 100%;
 }
 
 select{
-	width:80px;
-	padding: 10px;
+	padding: 15px;
+	margin: 20px;
+	margin-left: 0px;
+	border: none;
+	border-bottom: 3px solid #ff7300;
+	font-size: 24px;
+	text-align: left;
+	width: 25%;
 }
 
-input.date{
-	width: 50px;
+input.norm {
+	padding: 10px;
+	border-radius: 10px;
+	font-size: 16px;
+	width: 100%;
+
+}
+
+input,
+input.checkbox {
+	padding: 10px;
+	border-radius: 10px;
+	font-size: 16px;
+	border:2px solid rgb(236, 236, 236)
+
+}
+
+
+input.date1{
+	width: 20%;
+	text-align: center;
+}
+
+input.date2{
+
+	width: 20%;
+	margin-left: 5%;
+	margin-right: 5%;
+	text-align: center;
+	
+}
+
+input.date3{
+	width: 48%;
+	text-align: center;
+}
+
+input.mobile {
+	padding: 15px;
+	padding-left: 20px;
+	border-radius: 0px;
+	font-size: 24px;
+	border: none;
+	border-bottom: 3px solid #ff7300;
+	width: 65%;
+
+}
+
+
+button {
+	padding: 15px 20px;
+	margin: 40px 80px;
+	background-color: #ff7300;
+	color: #fff;
+	border: none;
+	border-radius: 25px;
+	font-size: 16px;
+	cursor: pointer;
+	width: 90%;
 }

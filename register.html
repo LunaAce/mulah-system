@@ -1,50 +1,97 @@
-<!DOCTYPE html>
-<html>
-
 <head>
-    <title>Login Page</title>
+    <title>Register</title>
     <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 </head>
 <body>
     <div id="app">
-        <h1 class="title">Mulah</h1>
+        <div class="Container">
+        <h1 class="subtitle">MULAH</h1>
         <h2 class="sub">Registration</h2>
-        <p class="desg">Please fill up details</p>
+        <h2 class="desc">Please fill up details</h2>
         <form>
-            <div>
-
-                <p>Name</p>
-                <input placeholder="Enter Name" type="name" id="mobile-number" v-model="name" required />
+        
+            <div class="text-area">
+            <p>Name</p>
+                <input class="norm" placeholder="Enter Name" type="name" id="name" v-model="name" required/>
                 <p class="warning">*Please insert a name</p>
+            </div>
 
-
-                <p>Birthday</p>
-                <input class=date placeholder="DD" type="dd" id="date" v-model="dd" required>
-                <input class=date placeholder="MM" type="mm" id="month" v-model="mm" required>
-                <input class=date placeholder="YYYY" type="yyy" id="year" v-model="yy" required>
+            <div class="text-area">
+            <p>Birthday</p>
+                <input class=date1 placeholder="DD" type="dd" id="date" v-model="dd"  pattern="[0-31]{2}"required></input>
+                <input class=date2 placeholder="MM" type="mm" id="month" v-model="mm"  pattern="[0-12]{2}"required></input>
+                <input class=date3 placeholder="YYYY" type="yyyy" id="year" v-model="yy"  pattern="[0000-2050]{4}"required></input>
                 <p class="warning">*Please insert your birthday</p>
+            </div>
+      
+            <div class="text-area">
+            <p>Email</p>
+                <input class="norm" placeholder="Email Address" type="email" id="email" v-model="email" required />
+            <p class="warning">*Please insert a valid email address</p>
 
-                <p>Email</p>
-                <input placeholder="Email Address" type="email" id="email" v-model="email" required />
-                <p class="warning">*Please insert a valid email address</p>
-                <input type="checkbox" id="noemail" value="No Email Addres" />
-                <label for="noemail">No email address</label><br />
+            <input class=checkbox type="checkbox" id="noemail" value="No Email Addres"></input>
+            <label class=lbemail for="noemail">No email address</label>
+            <br/>
             </div>
 
             <button v-on:click="Register">Continue</button>
-
-            <hr>
-            
-            </hr>
-            <footer>
-                <p>Powered by <a href="MulahRewards.com">MulahRewards.com</a></p>
-            </footer>
+           
         </form>
+        <footer>
+            <hr> </hr>
+            <p>Powered by <a href="MulahRewards.com">MulahRewards.com</a></p>
+        </footer>
     </div>
+    <script>
+        export default {
+        props: ['message'],
+        name: '',
+        dd: '',
+        mm: '',
+        yy: '',
+        email: '',
+        },
+        
+        methods: {
+            handleSubmit() {
+                const data = {
+                    name: this.name,
+                    dd: this.dd,
+                    mm: this.mm,
+                    yy: this.yy,
+                    email: this.email
+                }
+                console.log('submitted')
+            }
 
-    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
-    <script src="register.js"></script>
+        
+        }
+
+        // var app = new Vue({
+        //     el: '#app',
+        //     data: {
+        //         name: '',
+        //         dd: '',
+        //         mm: '',
+        //         yy: '',
+        //         email: '',
+        //     },
+        //     methods: {
+        //         handleSubmit() {
+        //             const data = {
+        //                 name: this.name,
+        //                 dd: this.dd,
+        //                 mm: this.mm,
+        //                 yy: this.yy,
+        //                 email: this.email
+        //             }
+        //             console.log('submitted')
+        //         }
+        
+        
+        //     }
+        // })
+        
+        </script>
 </body>
-
-
-</html>

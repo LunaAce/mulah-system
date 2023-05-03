@@ -1,39 +1,57 @@
-<!DOCTYPE html>
-<html>
+
+
+
 
 <head>
-  <title>Login Page</title>
+  <title>Mulah System</title>
   <link rel="stylesheet" type="text/css" href="stylesheet.css">
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 </head>
 <body>
-  <div id="app">
-    <h1 class="title">Mulah</h1>
-    <br>
-    <h1 class="greetings">Hello, </h2>
-    <h1 class="greetings">Welcome</h2>
-  
-    <form>
+<div id="app">
+    <div class="Container">
+      <h1 class="title">MULAH</h1>
+      <br>
+      <h1 class="greetings">{{message}}</h1>
+      <h1 class="greetings">Welcome!</h1>
       <p class="des">Check Your Loyalty Points & Rewards</p>
-      <div>
-        <select for="mobile-number">
-          <option value="+60 ">+60</option>
-          <input placeholder="Enter your mobile number" type="tel" id="mobile-number" v-model="mobileNumber"
-            pattern="[0-9]{10}" required><br>
-        </select>
-
-      </div>
-      <button v-on:click="location.replace('register.html')">Check Loyality Point</button>
-
-      <hr></hr>
+      <form @submit.prevent="login">
+        <div class="text-area">
+          <select for="mobile-number">
+            <option value="+60 ">+60</option>
+            <input class="mobile" placeholder="Enter your mobile number" type="tel" id="mobile-number" v-model="mobileNumber"
+              pattern="[0-9]{10}" required/>
+          </select>
+        </div>
+        <button type ="submit" v-on:click="login">Check Loyality Point</button>
+      </form>
       <footer>
-          <p>Powered by <a href="MulahRewards.com">MulahRewards.com</a></p>
+        <hr>
+        <p>Powered by <a href="MulahRewards.com">MulahRewards.com</a></p>
       </footer>
-    </form>
+    </div>
   </div>
-
-  <!-- include Vue.js library -->
-  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
-  <!-- include your custom JS file -->
-  <script src="app.js"></script>
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        mobileNumber: '',
+        error: '',
+        message: 'Hello,',
+      },
+      methods: {
+        login() {
+          if (this.mobileNumber === '1234567890') {
+            window.location.href = 'register.html';
+            
+          } else {
+            this.error = 'Invalid username or password';
+          }
+        },
+      },
+    });
+  </script>
 </body>
-</html>
+
+
+
