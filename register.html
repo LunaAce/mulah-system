@@ -61,7 +61,7 @@
                     yy: '',
                     email: '',
                     notRequired: false ,
-                    emailError: false
+                    email: '',
 
                 },
 
@@ -75,16 +75,6 @@
                     }
                 },
 
-                computed: {
-                        isEmailValid() {
-                        // Check if email is not empty and in the correct format
-                        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                        return this.email && emailRegex.test(this.email);
-                        },
-                        isEmailRequired() {
-                        return this.email.trim() === "";
-                        },
-                    },
                 methods: {
                     handleSubmit() {
                         localStorage.setItem('mobileNumber', this.mobileNumber);
@@ -99,9 +89,13 @@
                                     window.location.href = 'result.html';
                                     }
 
-                                else if(this.notRequired === false  && (/^\S+@\S+\.\S+$/.test(this.email))){
+                                else if(this.notRequired === false  && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(this.email)){
                                     localStorage.setItem('email', this.email);
                                     window.location.href = 'result.html';
+                                    }
+                                
+                                else{
+                                    window.alert = 'Email Error';
                                     }
 
                                 }

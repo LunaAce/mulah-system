@@ -43,12 +43,12 @@
       },
       methods: {
         login() {
-          if (this.mobileNumber) {
+          if (this.mobileNumber && (/^[0-9]{10}$/.test(this.mobileNumber))) {
             localStorage.setItem('mobileNumber', this.selected + this.mobileNumber);
             window.location.href = 'register.html';
             
           } else {
-            this.error = 'Invalid username or password';
+            window.alert = 'Invalid Number';
           }
         },
       },
